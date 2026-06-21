@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: siteHeader"></div>
+
+<h2 class="page-title">My Orders</h2>
+
+<div class="orders-container">
+
+    <div class="order-card" th:each="order : ${orders}">
+
+        <div class="order-header">
+            <span class="order-date"
+                  th:text="${#temporals.format(order.createdOn, 'dd.MM.yyyy HH:mm')}"></span>
+
+            <span class="order-status"
+                  th:text="${order.status}"></span>
+        </div>
+
+        <div class="order-body">
+            <a th:href="@{/orders/{id}(id=${order.id})}">
+                View details
+            </a>
+
+            <p class="order-price">
+                Total:
+                <span th:text="${order.totalPrice} + ' €'"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+<div th:replace="fragments/footer :: siteFooter"></div>
+
+</body>
+</html>

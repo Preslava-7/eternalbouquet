@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<form th:action="@{/bouquets/edit/{id}(id=${bouquet.id})}"
+      th:object="${bouquet}"
+      method="post">
+
+    <input type="text" th:field="*{name}" placeholder="Name"/>
+    <input type="number" th:field="*{price}" placeholder="Price"/>
+    <input type="text" th:field="*{imageUrl}" placeholder="Image URL"/>
+    <input type="text" th:field="*{description}" placeholder="Description"/>
+    <input type="text" th:field="*{stock}" placeholder="Stock"/>
+
+    <select th:field="*{categories}">
+        <option th:each="c : ${T(bg.softuni.eternalbouquet.model.entity.bouquet.Category).values()}"
+                th:value="${c}"
+                th:text="${c}">
+        </option>
+    </select>
+
+    <button type="submit">Save</button>
+
+</form>
+
+</body>
+</html>

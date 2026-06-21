@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<header th:fragment="siteHeader">
+    <div class="flower-shop"><b>🌸 Eternal Bouquet</b></div>
+
+    <div class="user-info">
+    <span th:if="${session.username != null}"
+          th:text="'Hello, ' + ${session.username}">
+    </span>
+    </div>
+
+    <div class="categories-menu">
+
+        <span class="menu-title">Size ▾</span>
+
+        <div class="dropdown">
+
+            <a th:href="@{/index(size='')}" class="dropdown-item">All sizes</a>
+
+            <a th:each="s : ${T(bg.softuni.eternalbouquet.model.entity.bouquet.BouquetSize).values()}"
+               th:href="@{/index(size=${s})}"
+               th:text="${s}"
+               class="dropdown-item">
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="categories-menu">
+        <span class="menu-title">Categories ▾</span>
+
+        <div class="dropdown">
+            <a th:href="@{/index(category='')}" class="dropdown-item">All</a>
+
+            <a th:each="c : ${T(bg.softuni.eternalbouquet.model.entity.bouquet.Category).values()}"
+               th:href="@{/index(category=${c})}"
+               th:text="${c}"
+               class="dropdown-item">
+            </a>
+        </div>
+    </div>
+    <nav>
+        <a th:if="${session.isAdmin}" th:href="@{/admin/users}">Users</a>
+        <a href="/favorites">Favorites</a>
+        <a href="/cart">Cart</a>
+        <a href="/orders">Orders</a>
+        <a th:if="${session.user_id == null}"
+           href="/login">
+            Login
+        </a>
+
+        <a th:if="${session.user_id != null}"
+           href="/signout">
+            Logout
+        </a>
+    </nav>
+</header>
+</body>
+</html>

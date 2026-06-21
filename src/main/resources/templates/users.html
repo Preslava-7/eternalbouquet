@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🌸 Eternal Bouquet</div>
+
+    <nav>
+        <a th:href="@{/index}">Home</a>
+        <a th:href="@{/orders}">Orders</a>
+    </nav>
+</header>
+
+<h2 class="page-title">Users Management</h2>
+
+<div class="orders-container">
+
+    <div class="order-card"
+         th:each="user : ${users}">
+
+        <p>
+            <strong>Username:</strong>
+            <span th:text="${user.username}"></span>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <span th:text="${user.email}"></span>
+        </p>
+
+        <form th:action="@{/admin/users/{id}/role(id=${user.id})}"
+              method="post">
+
+            <label class="switch">
+                <input type="checkbox"
+                       onchange="this.form.submit()"
+                       th:checked="${user.role.name() == 'ADMIN'}">
+
+                <span class="slider"></span>
+            </label>
+
+            <span th:text="${user.role}"></span>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

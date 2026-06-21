@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorites</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: siteHeader"></div>
+
+
+<h1>My Favorite Bouquets</h1>
+
+<div class="products">
+<div class="card" th:each="bouquet : ${favoriteBouquets}">
+
+    <img th:src="${bouquet.imageUrl}" alt="Bouquet">
+
+    <div class="card-content">
+        <h3>
+            <a th:href="@{/bouquets/{id}(id=${bouquet.id})}" th:text="${bouquet.name}"></a>
+        </h3>
+
+        <p class="price" th:text="${bouquet.price + ' €'}"></p>
+
+        <div class="button-group">
+            <form th:action="@{/cart/add/{id}(id=${bouquet.id})}" method="post">
+                <button class="buy-btn" type="submit">
+                    Add to cart
+                </button>
+            </form>
+
+            <form th:action="@{/favorites/remove/{id}(id=${bouquet.id})}" method="post">
+                <button class="favorite-btn" type="submit">
+                    Remove
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</div>
+<div th:replace="fragments/footer :: siteFooter"></div>
+</body>
+</html>

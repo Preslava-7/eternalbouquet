@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div th:replace="fragments/header :: siteHeader"></div>
+
+
+<h2>Order Details</h2>
+
+<div class="order-details">
+
+    <p><b>Date:</b> <span th:text="${#temporals.format(order.createdOn, 'dd.MM.yyyy HH:mm')}"></span></p>
+    <p><b>Status:</b> <span th:text="${order.status}"></span></p>
+    <p><b>Total:</b> <span th:text="${order.totalPrice} + ' €'"></span></p>
+    <p><b>Delivery Address:</b> <span th:text="${order.deliveryAddress}"></span></p>
+
+    <h3>Items:</h3>
+
+    <div class="cart-item" th:each="item : ${order.items}">
+
+        <img th:src="${item.bouquet.imageUrl}" alt="bouquet image"/>
+
+        <div class="item-info">
+            <p class="name" th:text="${item.bouquet.name}"></p>
+            <p class="qty" th:text="'Qty: ' + ${item.quantity}"></p>
+            <p class="price" th:text="${item.priceAtPurchase} + ' €'"></p>
+        </div>
+
+        <form th:action="@{/bouquets/{id}(id=${item.bouquet.id})}"
+              method="get">
+            <button type="submit">View bouquet</button>
+        </form>
+
+    </div>
+
+</div>
+<div th:replace="fragments/footer :: siteFooter"></div>
+
+</body>
+</html>

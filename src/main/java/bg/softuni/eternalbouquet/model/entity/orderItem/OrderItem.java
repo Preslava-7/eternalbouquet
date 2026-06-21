@@ -2,10 +2,7 @@ package bg.softuni.eternalbouquet.model.entity.orderItem;
 
 import bg.softuni.eternalbouquet.model.entity.bouquet.Bouquet;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import bg.softuni.eternalbouquet.model.entity.order.Order;
 
 import java.math.BigDecimal;
@@ -17,6 +14,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class OrderItem {
 
     @Id

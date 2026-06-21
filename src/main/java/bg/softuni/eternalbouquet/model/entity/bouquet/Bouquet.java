@@ -5,9 +5,7 @@ import lombok.*;
 import bg.softuni.eternalbouquet.model.entity.reviews.Review;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "bouquets")
@@ -15,6 +13,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Bouquet {
 
     @Id
@@ -39,8 +38,13 @@ public class Bouquet {
     @Enumerated(EnumType.STRING)
     private BouquetSize size;
 
+    @ElementCollection(targetClass = Category.class)
     @Enumerated(EnumType.STRING)
-    private OccasionType occasion;
+    @CollectionTable(
+            name = "categories",
+            joinColumns = @JoinColumn(name = "bouquet_id")
+    )
+    private Set<Category> categories = new HashSet<>();
 
     @OneToMany(mappedBy = "bouquet", cascade = CascadeType.ALL)
     private List<Review> reviews = new ArrayList<>();

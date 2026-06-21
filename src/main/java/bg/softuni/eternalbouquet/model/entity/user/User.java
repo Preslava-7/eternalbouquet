@@ -2,10 +2,7 @@ package bg.softuni.eternalbouquet.model.entity.user;
 
 import bg.softuni.eternalbouquet.model.entity.bouquet.Bouquet;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import bg.softuni.eternalbouquet.model.entity.order.Order;
 
 import java.util.ArrayList;
@@ -18,6 +15,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class User {
 
     @Id
