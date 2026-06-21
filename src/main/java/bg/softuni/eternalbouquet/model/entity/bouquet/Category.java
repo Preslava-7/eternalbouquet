@@ -1,6 +1,6 @@
 package bg.softuni.eternalbouquet.model.entity.bouquet;
 
-public enum OccasionType {
+public enum Category {
     BIRTHDAY,
     WEDDING,
     ANNIVERSARY,
