@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.repository.review;
 
 import bg.softuni.eternalbouquet.model.entity.bouquet.Bouquet;
@@ -14,7 +13,4 @@ public interface ReviewRepository extends JpaRepository<Review, UUID> {
     List<Review> findAllByBouquetId(UUID bouquetId);
 
     boolean existsByUserIdAndBouquetId(UUID userId, UUID bouquetId);
-=======
-package bg.softuni.eternalbouquet.repository.review;public interface ReviewRepository {
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)
 }

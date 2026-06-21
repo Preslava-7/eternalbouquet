@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.service.user;
 
 import bg.softuni.eternalbouquet.mapper.user.UserMapper;
@@ -127,7 +126,5 @@ public class UserService {
                 .map(UserMapper::toDto)
                 .toList();
     }
-=======
-package bg.softuni.eternalbouquet.service.user;public class UserService {
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)
+
 }

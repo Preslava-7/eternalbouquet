@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.service.orderItem;
 
 import bg.softuni.eternalbouquet.mapper.orderItem.OrderItemMapper;
@@ -17,7 +16,5 @@ import java.util.UUID;
 @Service
 public class OrderItemService {
 
-=======
-package bg.softuni.eternalbouquet.service.orderItem;public class OrderItemService {
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)
+
 }

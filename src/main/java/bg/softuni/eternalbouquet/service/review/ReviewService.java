@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.service.review;
 
 import bg.softuni.eternalbouquet.mapper.review.ReviewMapper;
@@ -95,15 +94,3 @@ public class ReviewService {
 
 
 
-
-
-
-
-
-
-
-
-=======
-package bg.softuni.eternalbouquet.service.review;public class ReviewService {
-}
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)

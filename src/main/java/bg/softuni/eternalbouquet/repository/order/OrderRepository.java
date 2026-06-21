@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.repository.order;
 
 import bg.softuni.eternalbouquet.model.entity.order.Order;
@@ -21,7 +20,4 @@ public interface OrderRepository extends JpaRepository<Order, UUID> {
 
     Optional<Order> findByUserIdAndStatus(UUID userId, OrderStatus status);
 
-=======
-package bg.softuni.eternalbouquet.repository.order;public interface OrderRepository {
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)
 }

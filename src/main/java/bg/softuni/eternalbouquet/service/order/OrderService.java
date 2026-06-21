@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.service.order;
 
 import bg.softuni.eternalbouquet.mapper.order.OrderMapper;
@@ -207,18 +206,3 @@ public class OrderService {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-=======
-package bg.softuni.eternalbouquet.service.order;public class OrderService {
-}
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package bg.softuni.eternalbouquet.service.bouquet;
 
 import bg.softuni.eternalbouquet.mapper.bouquet.BouquetMapper;
@@ -69,7 +69,5 @@ public class BouquetService {
 
         bouquetRepository.save(bouquet);
     }
-=======
-package bg.softuni.eternalbouquet.service.bouquet;public class BouquetService {
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)
+
 }

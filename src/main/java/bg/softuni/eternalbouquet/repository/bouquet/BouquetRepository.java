@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bg.softuni.eternalbouquet.repository.bouquet;
 
 import bg.softuni.eternalbouquet.model.entity.bouquet.Bouquet;
@@ -18,7 +17,4 @@ public interface BouquetRepository extends JpaRepository<Bouquet, UUID> {
     List<Bouquet> findBySize(BouquetSize size);
 
     List<Bouquet> findByNameContainingIgnoreCase(String name);
-=======
-package bg.softuni.eternalbouquet.repository.bouquet;public interface BouquetRepository {
->>>>>>> 6069ab8 (feat: add domain entities repositories and service layer)
 }
