@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div th:replace="fragments/header :: siteHeader"></div>
+
+
+<div class="cart-item" th:each="item : ${cart.items}">
+
+    <img th:src="${item.bouquet.imageUrl}" alt="bouquet image"/>
+
+    <div class="item-info">
+        <p class="name">
+            <a th:href="@{/bouquets/{id}(id=${item.bouquet.id})}"
+               th:text="${item.bouquet.name}">
+            </a>
+        </p>        <p class="qty" th:text="'Qty: ' + ${item.quantity}"></p>
+        <p class="price" th:text="${item.priceAtPurchase} + ' €'"></p>
+    </div>
+
+    <form th:action="@{/cart/remove/{id}(id=${item.id})}"
+          method="post">
+        <button type="submit">Remove</button>
+    </form>
+
+</div>
+
+<nav>
+    <a class="continue-shopping" href="/index">Proceed to shopping</a>
+</nav>
+<p th:if="${errorMessage}"
+   th:text="${errorMessage}"
+   style="color:red; font-weight:bold;">
+</p>
+<div class="button-wrapper">
+    <a class="checkout-btn" href="/checkout">Complete Order</a>
+</div>
+<div th:replace="fragments/footer :: siteFooter"></div>
+
+</body>
+</html>
