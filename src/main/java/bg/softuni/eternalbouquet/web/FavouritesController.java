@@ -71,6 +71,4 @@ public class FavouritesController {
 
         return "redirect:/cart";
     }
-
-
 }

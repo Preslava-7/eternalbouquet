@@ -62,8 +62,5 @@ public class BouquetController {
         return "redirect:/bouquets/" + bouquetId;
     }
 
-
-
-
     
 }
