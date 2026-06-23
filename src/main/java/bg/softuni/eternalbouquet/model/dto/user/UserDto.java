@@ -16,7 +16,6 @@ public class UserDto {
     private UUID id;
     private String username;
     private String email;
-    private String password;
     private UserRole role;
     private List<Order> orders = new ArrayList<>();
     private List<Bouquet> favouriteBouquets = new ArrayList<>();
